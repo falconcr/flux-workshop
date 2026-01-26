@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Recursos a incluir
+resources:
+  - namespace.yaml
+  - pod-nginx.yaml
+
+# Forzar que todo lo definido en 'resources' vaya a este namespace
+namespace: cloudstation
+
+# (Opcional) Agregar etiquetas comunes a todos los recursos
+commonLabels:
+  managed-by: flux
+  project: cloudstation
